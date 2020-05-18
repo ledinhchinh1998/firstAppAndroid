@@ -11,22 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.internandroid.R;
-import com.example.internandroid.model.GirlModel;
+import com.example.internandroid.data.model.MenuModel;
 
 import java.util.List;
 
-public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder>{
-    private List<GirlModel.Data> mList;
+public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder> {
+    private List<MenuModel.Data> mList;
     private Context context;
     private OnLick listener;
 
-    public GirlAdapter(List<GirlModel.Data> mList, Context context,OnLick listener) {
+    public GirlAdapter(List<MenuModel.Data> mList, Context context, OnLick listener) {
         this.mList = mList;
         this.context = context;
         this.listener = listener;
     }
 
-    public void setOnClickListener(OnLick listener){
+    public void setOnClickListener(OnLick listener) {
         this.listener = listener;
     }
 
@@ -42,13 +42,11 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder>{
     // xu ly code
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        GirlModel.Data data = mList.get(position);
-
+        MenuModel.Data data = mList.get(position);
         holder.tvName.setText(data.getName());
+        holder.tvDetail.setText(data.getDetail());
     }
 
-
-    //
     @Override
     public int getItemCount() {
         return mList.size();
@@ -66,7 +64,7 @@ public class GirlAdapter extends RecyclerView.Adapter<GirlAdapter.ViewHolder>{
         }
     }
 
-    public interface OnLick{
+    public interface OnLick {
         void onPos(int pos);
     }
 

@@ -1,13 +1,11 @@
 package com.example.internandroid.retrofit;
 
-import com.example.internandroid.model.GirlModel;
-
-import java.util.List;
+import com.example.internandroid.data.model.MenuModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface GetDataService {
     @GET("/getMenu")
-    Call<List<GirlModel.Data>> dataGirl();
+    Call<MenuModel.getDatas> dataGirl();
 }
